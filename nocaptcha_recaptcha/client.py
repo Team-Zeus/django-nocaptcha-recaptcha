@@ -92,7 +92,7 @@ def submit(g_nocaptcha_response_value, secret_key, remoteip):
     httpresp = urlopen(req)
 
     try:
-        res = force_text(httpresp.read())
+        res = force_str(httpresp.read())
         return_values = json.loads(res)
     except (ValueError, TypeError):
         return RecaptchaResponse(
